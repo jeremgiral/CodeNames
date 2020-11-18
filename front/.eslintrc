@@ -1,0 +1,30 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "prettier", "prettier/react"],
+  "plugins": ["react", "jsx-a11y", "import", "prettier"],
+  "globals": {
+    "document": true,
+    "window": true,
+    "localStorage": true
+  },
+  "rules": {
+    "semi": ["error", "never"],
+    "quotes": ["error", "double"],
+    "array-callback-return": "off",
+    "no-underscore-dangle": "off",
+    "no-console": "off",
+    "max-len": [
+      "error",
+      {
+        "code": 200
+      }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "react/prop-types": [0]
+  }
+}

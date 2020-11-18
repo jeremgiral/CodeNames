@@ -1,0 +1,35 @@
+version: "2"
+
+services:
+  back-codenames:
+    image: back-codenames
+    build: ./back
+    networks:
+      - database-codenames
+      - backend-codenames
+    volumes:
+      - "./back/src:/usr/src/app/src"
+      - "./back/package.json:/usr/src/app/package.json"
+      - ".env:/usr/src/app/.env"
+    ports:
+      - 3000:3000
+
+  front-codenames:
+    extends:
+      file: ./front/docker-compose.yml
+      service: front
+
+  mongo-codenames:
+    image: mongo
+    ports:
+      - 27017:27017
+    networks:
+      - database-codenames
+
+networks:
+  database-codenames:
+    external:
+      name: database-net-codenames
+  backend-codenames:
+    external:
+      name: backend-net-codenames

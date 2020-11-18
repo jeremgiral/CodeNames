@@ -1,0 +1,18 @@
+version: "2"
+
+services:
+  front:
+    build: .
+    command: npm run dev
+    networks:
+      - backend-codenames
+    volumes:
+      - .:/usr/server/
+      - /usr/server/node_modules
+    ports:
+      - "80:80"
+
+networks:
+  backend-codenames:
+    external:
+      name: backend-net
